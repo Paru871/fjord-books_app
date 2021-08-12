@@ -63,8 +63,12 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
-  logged_in_as: Logged in as
-  sign_up: Sign up
-  login: Login
-  logout: Logout
-  edit_profile: Edit profile
+  users:
+    views:
+      users_list: Users List
+      user_detail: User Information
+  logged_in_as: 'Logged in as '
+  sign_up: 'Sign up'
+  login: 'Login'
+  logout: 'Logout'
+  edit_profile: 'Edit profile'
