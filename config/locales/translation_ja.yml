@@ -8,4 +8,12 @@ ja:
         author: 著者  #g
         memo: メモ  #g
         picture: 画像  #g
-        title: 題名  #g
+        title: 題名
+  
+  views:
+    pagination:
+      first: 最初
+      previous: 前
+      next: 次
+      last: 最後
+      truncate: '...'
