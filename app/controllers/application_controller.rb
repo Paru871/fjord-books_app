@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
 
   protected
   def configure_permitted_parameters
-    # サインアップ時にzipcode,address,profileのストロングパラメータを追加
-    # devise_parameter_sanitizer.permit(:sign_up, keys: [:zipcode, :address, :profile])
     # アカウント編集の時にzipcode,address,profileのストロングパラメータを追加
     devise_parameter_sanitizer.permit(:account_update, keys: [:zipcode, :address, :profile])
   end
