@@ -21,5 +21,5 @@
 <div class="field">
   <%= f.label :avatar %>
   <%= f.file_field :avatar %>
-  <%= image_tag @user.thumbnail if @user.avatar.attached? %>
+  <%= image_tag @user.avatar.variant(resize_to_fit: [100, 100]) if @user.avatar.attached? %>
 </div>

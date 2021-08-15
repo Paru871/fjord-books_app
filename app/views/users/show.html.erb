@@ -27,7 +27,7 @@
 
 <p>
   <strong><div style="float: none;"><%= User.human_attribute_name(:avatar) %>:</div></strong>
-  <%= image_tag @user.thumbnail if @user.avatar.attached? %>
+  <%= image_tag @user.avatar.variant(resize_to_fit: [100, 100]).processed if @user.avatar.attached? %>
 </p>
 
 <% if current_user == @user %>
