@@ -8,3 +8,11 @@ en:
     index:
       confirm:  
         Are_you_sure: 'Are you sure?'
+      link:
+        new_book: New Book
+    edit:
+      header:
+        editing_book: Editing Book
+    new:
+      header:
+        new_book: New Book

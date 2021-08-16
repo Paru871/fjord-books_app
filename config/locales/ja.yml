@@ -22,37 +22,25 @@ ja:
 
   views:
     index:
-      header:
-        Books: 書籍一覧
-      label:   
-        Author: 著者
-        Memo: メモ
-        Picture: 写真
-        Title: タイトル
       link:
         Show: 表示
         Edit: 編集
         Destroy: 削除
-        New Book: 追加
+        new_book: 追加
       confirm:  
         Are_you_sure: '本当に削除しますか？'
     new:
       header:
-        New Book: 新規書籍  
+        new_book: 新規書籍  
       link:
         Back: 一覧に戻る
     show:
-      label:   
-        Author: 著者
-        Memo: メモ
-        Picture: 写真
-        Title: タイトル
       link:
         Edit: 編集
         Back: 一覧に戻る
     edit:
       header:
-        Editing Book: 書籍編集  
+        editing_book: 書籍編集  
       link:
         Show: 表示
         Back: 一覧に戻る
