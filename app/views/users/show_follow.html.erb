@@ -34,27 +34,15 @@
 </p>
 
 <p>
-<%= render 'stats' %>
-<!--
-<% @user ||= current_user %>
-  <a href="<%= followings_user_path(@user) %>">
-    <strong id="followings" class="stat">
-      <%= @user.followings.count %>
-    </strong>
-    <%= I18n.t('followings') %>
-  </a><br>
-  <a href="<%= followers_user_path(@user) %>">
-    <strong id="followers" class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    <%= I18n.t('followers') %>
-  </a> -->
+  <%= render 'stats' %>
 </p>
+
 <p>
-<% unless current_user == @user %>
-  <%= render 'follow_form' %>
-<% end %>
+  <% unless current_user == @user %>
+    <%= render 'follow_form' %>
+  <% end %>
 </p>
+
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
   <%= link_to t('views.common.back'), users_path %>
