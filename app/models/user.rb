@@ -11,7 +11,7 @@ class User < ApplicationRecord
   def avatar_type
     return unless avatar.attached?
 
-    return if avatar.blob.content_type.in?(%w['image/jpeg image/jpg image/png image/gif'])
+    return if avatar.blob.content_type.in?(%('image/jpeg image/jpg image/png image/gif'))
 
     errors.add(:avatar, I18n.t('devise.registrations.edit.wrong_content_type'))
   end
