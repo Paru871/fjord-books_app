@@ -17,3 +17,12 @@
   <%= f.label :self_introduction %>
   <%= f.text_area :self_introduction %>
 </div>
+
+<div class="field">
+  <%= f.label :avatar %><i>(<%= t('devise.registrations.edit.needs_to_be_a_jpeg_or_jpg_or_png_of_gif') %></i>)<br />
+  <%= f.file_field :avatar %>
+</div>
+
+<p>
+  <%= image_tag current_user.avatar.variant(resize_to_fit: [100, 100]) if current_user.avatar.attached? %>
+</p>
