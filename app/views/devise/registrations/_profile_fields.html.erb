@@ -19,7 +19,6 @@
 </div>
 
 <div class="field">
-  <%= f.label :avatar %>
+  <%= f.label :avatar %><i>(<%= t('devise.registrations.edit.nees_to_be_a_jpeg_or_jpg_or_png_of_gif') %></i>)<br />
   <%= f.file_field :avatar %>
-  <%= image_tag @user.avatar %> <%#.variant(resize_to_fit: [100, 100]) if @user.avatar.attached? %>
 </div>

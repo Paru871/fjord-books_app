@@ -240,4 +240,5 @@ en:
     registrations:
       edit:
         title: "Edit account"
-  wrong_content_type: "needs to be a JPEG/JPG or PNG or GIF"
+        wrong_content_type: "needs to be a JPEG/JPG or PNG or GIF"
+        needs_to_be_a_jpeg_or_jpg_or_png_of_gif: "needs to be a JPEG/JPG or PNG or GIF"

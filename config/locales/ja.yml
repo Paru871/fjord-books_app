@@ -238,4 +238,5 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
-  wrong_content_type: "には、jpeg/jpg,png,gif形式のみアップロード可能です"
+        wrong_content_type: "には、jpeg/jpg,png,gif形式のみアップロード可能です"
+        neesd_to_be_a_jpeg_or_jpg_or_png_of_gif: "jpeg/jpg,png,gif形式のみアップロード可能です"
