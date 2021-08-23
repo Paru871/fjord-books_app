@@ -52,3 +52,16 @@
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>
 <%= link_to t('views.common.back'), users_path %>
+
+<div>
+  <% if @user.reports.any? %>
+    <h3>reports (<%= @user.reports.count %>)</h3>
+    <ol class="reports">
+      <%#<%= render @reports %>
+      <%= render 'reports/report', reports: @reports %>
+    </ol>
+    <%#<%= paginate @reports %>
+  <% else %>
+  <p>no reports</p>
+  <% end %>
+</div>
