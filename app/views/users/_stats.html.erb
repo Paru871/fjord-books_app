@@ -1,15 +1,14 @@
-<% @user ||= current_user %>
 <div>
   <a href="<%= followings_user_path(@user) %>">
     <strong id="followings">
       <%= @user.followings.count %>
     </strong>
-    <%= I18n.t('followings') %>
+    <%= I18n.t('views.relationships.followings') %>
   </a><br>
   <a href="<%= followers_user_path(@user) %>">
     <strong id="followers">
       <%= @user.followers.count %>
     </strong>
-    <%= I18n.t('followers') %>
+    <%= I18n.t('views.relationships.followers') %>
   </a>
 </div>

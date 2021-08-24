@@ -34,7 +34,7 @@
 </p>
 
 <p>
-  <%= render 'stats' %>
+  <%= render 'stats', locals: {user: @user} %>
 </p>
 
 <p>
@@ -49,7 +49,7 @@
 <% end %>
 
 <hr style="border:0;border-top:1px solid blue;">
-<h2><%= I18n.t(@title) %></h2>
+<h2><%= I18n.t(@title, scope: 'views.relationships') %></h2>
     <% if @users.any? %>
       <table>
         <thead>
