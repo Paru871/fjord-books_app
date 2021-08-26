@@ -9,17 +9,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def followings
-    @title = 'followings'
-    @user  = User.find(params[:id])
-    @users = @user.followings.page(params[:page])
-    render 'show_follow'
-  end
+  # def followings
+  #   @title = 'followings'
+  #   @user  = User.find(params[:id])
+  #   @users = @user.followings.page(params[:page])
+  #   render 'show_follow'
+  # end
 
-  def followers
-    @title = 'followers'
-    @user  = User.find(params[:id])
-    @users = @user.followers.page(params[:page])
-    render 'show_follow'
-  end
+  # def followers
+  #   @title = 'followers'
+  #   @user  = User.find(params[:id])
+  #   @users = @user.followers.page(params[:page])
+  #   render 'show_follow'
+  # end
 end

@@ -225,6 +225,7 @@ ja:
       unfollow: フォロー解除
       followed: フォローしました
       unfollowed: フォロー解除しました
+      nobody: 誰もいません
     pagination:
       first: '最初'
       last: '最後'

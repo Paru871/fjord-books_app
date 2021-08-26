@@ -34,19 +34,20 @@
 </p>
 
 <p>
-  <%= render 'stats', locals: {user: @user} %>
-</p>
+  <%#<%= render 'users/stats', locals: {user: @user} %>
+</p> 
 
 <p>
-  <% unless current_user == @user %>
-    <%= render 'follow_form' %>
-  <% end %>
-</p>
+  <%#<% unless current_user == @user %>
+    <%#<%= render 'users/follow_form' %>
+  <%#<% end %>
+  <%= link_to t('views.common.back'), user_path(@user) %>
+</p> 
 
-<% if current_user == @user %>
-  <%= link_to t('views.common.edit'), edit_user_registration_path %> |
-  <%= link_to t('views.common.back'), users_path %>
-<% end %>
+<%#<% if current_user == @user %>
+  <%#<%= link_to t('views.common.edit'), edit_user_registration_path %> <!-- | -->
+  <%#<%= link_to t('views.common.back'), users_path %>
+<%#<% end %>
 
 <hr style="border:0;border-top:1px solid blue;">
 <h2><%= I18n.t(@title, scope: 'views.relationships') %></h2>
@@ -61,25 +62,27 @@
           <th><%= User.human_attribute_name(:address) %></th>
           <th></th>
         </tr>
-      </thead>
+        </thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <th>
-          <% if user.avatar.attached? %>
-            <%= image_tag user.avatar.variant(resize_to_fill: [30, 30])%>
-          <% end %>
-        </th>
-        <td><%= user.email %></td>
-        <td><%= user.name %></td>
-        <td><%= user.postal_code %></td>
-        <td><%= user.address %></td>
-        <td><%= link_to t('views.common.show'), user %></td>
-      </tr>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <th>
+            <% if user.avatar.attached? %>
+             <%= image_tag user.avatar.variant(resize_to_fill: [30, 30])%>
+            <% end %>
+          </th>
+          <td><%= user.email %></td>
+          <td><%= user.name %></td>
+          <td><%= user.postal_code %></td>
+          <td><%= user.address %></td>
+          <td><%= link_to t('views.common.show'), user %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= paginate @users %>
+    <% else%>
+      <%= t('views.relationships.nobody') %>
     <% end %>
-  </tbody>
-</table>
-
-<%= paginate @users %>
-<% end %>
