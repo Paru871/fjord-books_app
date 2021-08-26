@@ -34,20 +34,8 @@
 </p>
 
 <p>
-  <%#<%= render 'users/stats', locals: {user: @user} %>
-</p> 
-
-<p>
-  <%#<% unless current_user == @user %>
-    <%#<%= render 'users/follow_form' %>
-  <%#<% end %>
   <%= link_to t('views.common.back'), user_path(@user) %>
 </p> 
-
-<%#<% if current_user == @user %>
-  <%#<%= link_to t('views.common.edit'), edit_user_registration_path %> <!--|-->
-  <%#<%= link_to t('views.common.back'), users_path %>
-<%#<% end %>
 
 <hr style="border:0;border-top:1px solid blue;">
 <h2><%= I18n.t(@title, scope: 'views.relationships') %></h2>
@@ -58,8 +46,6 @@
           <th></th>
           <th><%= User.human_attribute_name(:email) %></th>
           <th><%= User.human_attribute_name(:name) %></th>
-          <th><%= User.human_attribute_name(:postal_code) %></th>
-          <th><%= User.human_attribute_name(:address) %></th>
           <th></th>
         </tr>
       </thead>
@@ -74,8 +60,6 @@
             </th>
             <td><%= user.email %></td>
             <td><%= user.name %></td>
-            <td><%= user.postal_code %></td>
-            <td><%= user.address %></td>
             <td><%= link_to t('views.common.show'), user %></td>
           </tr>
         <% end %>
