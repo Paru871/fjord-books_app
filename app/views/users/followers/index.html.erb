@@ -1,0 +1,72 @@
+  <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
+
+<p>
+  <strong><%= User.human_attribute_name(:email) %>:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:name) %>:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:postal_code) %>:</strong>
+  <%= @user.postal_code %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:address) %>:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:self_introduction) %>:</strong>
+  <%= @user.self_introduction %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:avatar) %>:</strong>
+  <% if @user.avatar.attached? %>
+    <br>
+    <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150])%>
+  <% end %>
+</p>
+
+<p>
+  <%= link_to t('views.common.back'), user_path(@user) %>
+</p> 
+
+<hr style="border:0;border-top:1px solid blue;">
+<h2><%= I18n.t(@title, scope: 'views.relationships') %></h2>
+    <% if @users.any? %>
+      <table>
+        <thead>
+        <tr>
+          <th></th>
+          <th><%= User.human_attribute_name(:email) %></th>
+          <th><%= User.human_attribute_name(:name) %></th>
+          <th></th>
+        </tr>
+        </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <th>
+            <% if user.avatar.attached? %>
+             <%= image_tag user.avatar.variant(resize_to_fill: [30, 30])%>
+            <% end %>
+          </th>
+          <td><%= user.email %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to t('views.common.show'), user %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= paginate @users %>
+    <% else%>
+      <%= t('views.relationships.nobody') %>
+    <% end %>

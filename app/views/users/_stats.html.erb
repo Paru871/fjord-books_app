@@ -1,0 +1,14 @@
+<div>
+  <a href="<%= user_followings_path(@user) %>">
+    <strong>
+      <%= @user.followings.count %>
+    </strong>
+    <%= I18n.t('views.relationships.followings') %>
+  </a><br>
+  <a href="<%= user_followers_path(@user) %>">
+    <strong>
+      <%= @user.followers.count %>
+    </strong>
+    <%= I18n.t('views.relationships.followers') %>
+  </a>
+</div>
