@@ -1,0 +1,45 @@
+<h1><%= Comment.model_name.human %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= User.model_name.human %></th>
+      <th><%= Comment.human_attribute_name(:body) %></th>
+      <th><%= Comment.human_attribute_name(:created_at) %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% commentable.comments.includes(:user).each do |comment| %>
+      <tr>
+        <td><%= comment.user.name.empty? ? comment.user.email : comment.user.name %></td>
+        <td><%= comment.body %></td>
+        <td><%= l(comment.created_at, format: :short) %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h1><%= Comment.model_name.human %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th><%= Comment.human_attribute_name(:body) %></th>
+      <th><%= Report.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% commentable.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user.name.presence || comment.user.email %></td>
+        <td><%= comment.body %></td>
+        <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
