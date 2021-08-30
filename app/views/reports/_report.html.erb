@@ -12,7 +12,7 @@
     <tbody>
     <% reports.each do |report| %>
       <tr>
-        <td><%= report.created_at %></td>
+        <td><%= l(report.created_at, format: :long) %>
         <td><%= report.title %></td>
         <td><%= report.content %></td>
         <td><%= link_to t('views.common.show'), report %></td>
@@ -21,6 +21,6 @@
     </tbody>
   </table>
 <% else %>
-  <p>日報がありません。</p>
+  <p><%= t('views.common.no_data', name: Report.model_name.human) %></p>
 <% end %>
 

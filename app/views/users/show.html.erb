@@ -55,14 +55,6 @@
 <%= link_to t('views.common.back'), users_path %>
 
 <div>
-  <%#<% if @user.reports.any? %>
     <h2> <%= t(Report.model_name.human) %>(<%= @user.reports.count %>)</h2>
-    <ol class="reports">
-      <%#<%= render @reports %>
-      <%= render 'reports/report', reports: @user.reports %>
-    </ol>
-    <%#<%= paginate @reports %>
-  <%#<% else %>
-  <!--<p>no reports</p> -->
-  <%#<% end %>
+    <%= render 'reports/report', reports: @user.reports %>
 </div>

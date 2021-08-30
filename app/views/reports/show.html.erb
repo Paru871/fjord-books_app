@@ -2,12 +2,17 @@
 
 <p>
   <strong><%= Report.human_attribute_name(:user) %>:</strong>
-  <%= @report.user.name %>
+  <% if @report.user.name.empty? %>
+    <%= @report.user.email %>
+  <% else %>
+    <%= @report.user.name %>
+  <% end %>
 </p>
 
 <p>
   <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
-  <%= @report.created_at %>
+  <%= l(@report.created_at, format: :long) %>
+        
 </p>
 
 <p>
@@ -21,11 +26,11 @@
 </p>
 
 <% if current_user == @report.user %>
-<%= link_to t('views.common.edit'), edit_report_path(@report) %> |
+  <%= link_to t('views.common.edit'), edit_report_path(@report) %> | 
+ <%= link_to t('views.common.destroy'), @report, method: :delete, data: { confirm: t('views.common.delete_confirm') } %> | 
 <% end %>
+
 <%= link_to t('views.common.back'), reports_path %>
 
 <%= render 'comments/comment', commentable: @report, comment: @comments %>
 <%= render 'comments/form', commentable: @report %>
-<%#<%= render partial: 'comments/comments', locals: {commentable: @report} %>
-<%#<%= render partial: 'comments/form', locals: {commentable: @report} %>
