@@ -22,6 +22,9 @@
         </td>
         <td><%= l(comment.created_at, format: :long) %>
         <td><%= comment.body %></td>
+        <% if current_user == comment.user %>
+          <td><%= link_to t('views.common.destroy'), [commentable, comment], method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
