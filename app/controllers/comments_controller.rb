@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[destroy]
+  before_action :set_comment, only: %i[edit update destroy]
 
   def create
     @comment = @commentable.comments.build(comment_params)
@@ -10,6 +10,19 @@ class CommentsController < ApplicationController
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
       render @commentable_render
+    end
+  end
+
+  def edit; end
+
+  def show; end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+    else
+      flash.now[:alert] = "#{Comment.model_name.human}#{t('errors.messages.blank')}"
+      render :edit
     end
   end
 
