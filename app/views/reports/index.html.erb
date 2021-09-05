@@ -14,13 +14,7 @@
     <% @reports.each do |report| %>
       <tr>
         <td><%= l(report.created_at, format: :long) %>
-        <td>
-          <% if report.user.name.empty? %>
-            <%= link_to report.user.email,report.user %>
-          <% else %>
-            <%= link_to report.user.name,report.user %>
-          <% end %>
-        </td>
+        <td><%= link_to report.user.name_or_email, report.user %></td>
         <td><%= report.title %></td>
         <td><%= report.content %></td>
         <td><%= link_to t('views.common.show'), report %></td>

@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      render @commentable_render
+      render commentable_render
     end
   end
 
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   def show; end
 
   def update
-    if @comment.update(comment_params)
+    if @comment.update(comment_params) && @comment.user == current_user
       redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
     else
       flash.now[:alert] = "#{Comment.model_name.human}#{t('errors.messages.blank')}"

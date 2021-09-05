@@ -14,11 +14,7 @@
     <% commentable.comments.order(created_at: :desc).includes(:user).each do |comment| %>
       <tr>
         <td>
-          <% if comment.user.name.empty? %>
-            <%= link_to comment.user.email,comment.user %>
-          <% else %>
-            <%= link_to comment.user.name,comment.user %>
-          <% end %>
+          <%= link_to comment.user.name_or_email, comment.user %>
         </td>
         <td><%= l(comment.created_at, format: :long) %>
         <td><%= comment.body %></td>

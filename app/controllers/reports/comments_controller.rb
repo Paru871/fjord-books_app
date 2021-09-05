@@ -3,7 +3,6 @@
 class Reports::CommentsController < CommentsController
   before_action :set_commentable
   before_action :set_report
-  before_action :set_commentable_render
 
   private
 
@@ -15,7 +14,7 @@ class Reports::CommentsController < CommentsController
     @report = Report.find(params[:report_id])
   end
 
-  def set_commentable_render
-    @commentable_render = 'reports/show'
+  def commentable_render
+    'reports/show'
   end
 end
