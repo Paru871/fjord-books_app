@@ -48,7 +48,13 @@
   <% end %>
 <% end %>
 
+<br>
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>
 <%= link_to t('views.common.back'), users_path %>
+
+<div>
+    <h2> <%= t(Report.model_name.human) %>(<%= @user.reports.count %>)</h2>
+    <%= render 'reports/report', reports: @user.reports %>
+</div>
