@@ -8,7 +8,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 'foo@example.com', user.name_or_email
 
     user.name = 'Alice'
-    assert_equal 'Alice', user.name_or_email 
+    assert_equal 'Alice', user.name_or_email
   end
 
   test '#follow' do
@@ -17,9 +17,9 @@ class UserTest < ActiveSupport::TestCase
 
     assert_not alice.active_relationships.where(following_id: bob.id).exists?
     assert_not bob.passive_relationships.where(follower_id: alice.id).exists?
-    
+
     alice.follow(bob)
-    
+
     assert alice.active_relationships.where(following_id: bob.id).exists?
     assert bob.passive_relationships.where(follower_id: alice.id).exists?
   end
@@ -40,16 +40,15 @@ class UserTest < ActiveSupport::TestCase
     bob = users(:bob)
 
     assert_not alice.following?(bob)
-    
+
     alice.follow(bob)
     assert alice.following?(bob)
-    
   end
 
   test '#followed_by?' do
     alice = users(:alice)
     bob = users(:bob)
-    
+
     assert_not bob.followed_by?(alice)
 
     alice.follow(bob)
