@@ -3,12 +3,20 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
-  test '#created_on' do
+  test '#editable?' do
     user = users(:alice)
+    
+    report = reports(:one)
+    assert report.editable?(user)
 
-    report = Report.create!(user: user, title: 'title', content: 'content')
+    report2 = reports(:two)
+    assert_not report2.editable?(user)
+  end
+  
+  test '#created_on' do
+    report = reports(:one)
 
-    assert_not_equal report.created_at.class, Date
-    assert_equal report.created_on.class, Date
+    assert report.created_on
+    assert_not_equal report.created_at, report.created_on
   end
 end

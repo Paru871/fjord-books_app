@@ -7,7 +7,7 @@ class ReportsTest < ApplicationSystemTestCase
     @report = reports(:one)
     visit root_url
     @user = users(:alice)
-    # sign_in(@user)
+
     fill_in 'Eメール', with: @user.email
     fill_in 'パスワード', with: 'password'
     click_button 'ログイン'
