@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
-  title: MyString
-  content: MyText
+  user: alice
+  title: alice_report_title
+  content: alice_report_content
 
 two:
-  user: two
-  title: MyString
-  content: MyText
+  user: bob
+  title: bob_report_title
+  content: bob_report_content
+
+
