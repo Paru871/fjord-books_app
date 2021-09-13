@@ -14,11 +14,11 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   # test '#created_on' 修正案1/4
-  # test '#created_on' do
-  #   report = reports(:one)
-  #   report.created_at = '2021-09-10'
-  #   assert_equal Date.new(2021, 9, 10), report.created_on
-  # end
+  test '#created_on' do
+    report = reports(:one)
+    report.created_at = '2021-09-10'
+    assert_equal Date.new(2021, 9, 10), report.created_on
+  end
 
   # test '#created_on' 修正案2/4
   #   test '#created_on' do
@@ -30,13 +30,13 @@ class ReportTest < ActiveSupport::TestCase
   # end
 
   # test '#created_on' 修正案3/4
-  test '#created_on' do
-    report = reports(:one)
-    travel_to Time.zone.local(2021, 9, 10) do
-      report.created_at = Time.zone.now
-    end
-    assert_equal Date.new(2021, 9, 10), report.created_on
-  end
+  # test '#created_on' do
+  #   report = reports(:one)
+  #   travel_to Time.zone.local(2021, 9, 10) do
+  #     report.created_at = Time.zone.now
+  #   end
+  #   assert_equal Date.new(2021, 9, 10), report.created_on
+  # end
 
   # test '#created_on' 修正案4/4
   # test '#created_on' do
